@@ -3,315 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACE Academy Tech | Educación Digital de Vanguardia</title>
-    <!-- Fuentes de Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Iconos FontAwesome -->
+    <title>ACE Academy Tech | Educación Digital Premium</title>
+    
+    <!-- Tailwind CSS (Diseño Moderno) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Librería de Animaciones (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Iconos Profesionales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Fuente Google: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --primary: #2563EB; /* Azul Corporativo */
-            --dark: #0F172A;    /* Azul Oscuro Profundo */
-            --accent: #10B981;  /* Verde Éxito */
-            --light: #F8FAFC;
-            --glass: rgba(255, 255, 255, 0.95);
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #2563EB, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body { background-color: var(--light); color: var(--dark); overflow-x: hidden; }
-
-        /* Navbar Elegante */
-        nav {
-            background: rgba(255, 255, 255, 0.9);
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .logo { font-size: 1.4rem; font-weight: 700; color: var(--dark); letter-spacing: -0.5px; }
-        .logo span { color: var(--primary); }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary); }
-
-        .btn-cta {
-            background: var(--primary);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4); }
-
-        /* Hero Section Impactante */
-        .hero {
-            background: linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%);
-            color: white;
-            padding: 8rem 5% 4rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
-            opacity: 0.1;
-        }
-
-        .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-        
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2.5rem; font-weight: 300; }
-
-        .hero-buttons { display: flex; gap: 1rem; justify-content: center; }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-outline {
-            border: 2px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-primary:hover, .btn-outline:hover { background: white; color: var(--dark); }
-
-        /* Sección de Cursos (Tarjetas Profesionales) */
-        .courses { padding: 5rem 5%; background: var(--light); }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 0.5rem; }
-        .section-title p { color: #64748B; }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border: 1px solid #E2E8F0;
-        }
-        .course-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        .card-header { height: 180px; background: #E2E8F0; position: relative; }
-        .card-header img { width: 100%; height: 100%; object-fit: cover; }
-        .badge {
-            position: absolute;
-            top: 1rem; right: 1rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .card-body { padding: 1.5rem; }
-        .card-body h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--dark); }
-        .card-body p { color: #64748B; font-size: 0.95rem; margin-bottom: 1.5rem; }
-        
-        .meta-info { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #F1F5F9; padding-top: 1rem; }
-        .price { font-size: 1.2rem; font-weight: 700; color: var(--dark); }
-        .duration { font-size: 0.9rem; color: #64748B; }
-
-        /* Features con Iconos */
-        .features { padding: 5rem 5%; background: white; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .feature-icon {
-            width: 70px; height: 70px;
-            background: #EFF6FF;
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        /* Footer Institucional */
-        footer { background: var(--dark); color: #94A3B8; padding: 4rem 5% 2rem; font-size: 0.9rem; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid #334155; padding-bottom: 3rem; }
-        .footer-col h4 { color: white; margin-bottom: 1.5rem; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 0.8rem; }
-        .footer-col ul li a { color: #94A3B8; text-decoration: none; transition: 0.3s; }
-        .footer-col ul li a:hover { color: white; }
-        
-        .copyright { text-align: center; padding-top: 2rem; }
-        .aval-code { background: #1E293B; padding: 0.5rem 1rem; border-radius: 6px; display: inline-block; margin-top: 1rem; color: var(--accent); }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* En móvil ocultamos menú simple por ahora */
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden">
 
-    <!-- Navegación -->
-    <nav>
-        <div class="logo">ACE <span>Academy</span></div>
-        <div class="nav-links">
-            <a href="#cursos">Cursos</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
+    <!-- Navbar Flotante -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-layer-group text-blue-600 text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">ACE <span class="text-blue-600">Academy</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Inicio</a>
+                    <a href="#cursos" class="text-slate-600 hover:text-blue-600 font-medium transition">Cursos</a>
+                    <a href="#aval" class="text-slate-600 hover:text-blue-600 font-medium transition">Certificación</a>
+                    <a href="#" class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg hover:shadow-blue-500/30">
+                        Aula Virtual
+                    </a>
+                </div>
+            </div>
         </div>
-        <a href="#" class="btn-cta">Aula Virtual</a>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Potencia tu Carrera con Inteligencia Artificial</h1>
-            <p>Formación práctica, automatizada y con aval institucional. Deja de perder tiempo y empieza a generar valor real en el mercado digital.</p>
-            <div class="hero-buttons">
-                <a href="#cursos" class="btn-primary">Ver Oferta Académica</a>
-                <a href="#" class="btn-outline">Clase Gratuita</a>
-            </div>
+    <!-- Hero Section con Animación -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50 rounded-bl-[100px] opacity-60"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-60"></div>
         </div>
-    </section>
 
-    <!-- Cursos Destacados -->
-    <section id="cursos" class="courses">
-        <div class="section-title">
-            <h2>Nuestros Programas</h2>
-            <p>Diseñados para la empleabilidad inmediata y el trabajo freelance.</p>
-        </div>
-        
-        <div class="course-grid">
-            <!-- Curso 1 -->
-            <div class="course-card">
-                <div class="card-header">
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="IA">
-                    <span class="badge">Más Popular</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-sm">
+                    🚀 Nueva Era de Educación Digital en Venezuela
                 </div>
-                <div class="card-body">
-                    <h3>Introducción Práctica a la IA</h3>
-                    <p>Pierde el miedo a la tecnología. Aprende a usar herramientas de IA para ahorrar horas de trabajo diario.</p>
-                    <div class="meta-info">
-                        <span class="price">$7 USD</span>
-                        <span class="duration"><i class="far fa-clock"></i> 12 Horas</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Curso 2 -->
-            <div class="course-card">
-                <div class="card-header">
-                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Asistente Virtual">
-                </div>
-                <div class="card-body">
-                    <h3>Asistente Virtual con IA</h3>
-                    <p>Conviértete en un profesional indispensable. Gestiona agendas, correos y tareas usando automatización.</p>
-                    <div class="meta-info">
-                        <span class="price">$25 USD</span>
-                        <span class="duration"><i class="far fa-clock"></i> 4 Semanas</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Curso 3 -->
-            <div class="course-card">
-                <div class="card-header">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Marketing">
-                </div>
-                <div class="card-body">
-                    <h3>Marketing Digital Automatizado</h3>
-                    <p>Crea campañas, contenido y embudos de venta mientras duermes. Ideal para emprendedores.</p>
-                    <div class="meta-info">
-                        <span class="price">$30 USD</span>
-                        <span class="duration"><i class="far fa-clock"></i> 6 Semanas</span>
-                    </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
+                    Domina la <span class="gradient-text">Inteligencia Artificial</span> y Automatiza tu Éxito
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                    Deja de perder tiempo en tareas repetitivas. Aprende habilidades digitales de alto valor con nuestra metodología práctica y obtén un certificado con aval institucional.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#cursos" class="px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-xl hover:shadow-blue-600/40 transform hover:-translate-y-1">
+                        Ver Cursos Disponibles
+                    </a>
+                    <a href="#" class="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-full font-bold text-lg hover:bg-slate-50 transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-circle-play"></i> Clase de Prueba
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Por qué elegirnos -->
-    <section class="features">
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-certificate"></i></div>
-                <h3>Aval Institucional</h3>
-                <p>Certificados con validez oficial respaldados por instituciones educativas de prestigio.</p>
+    <!-- Sección de Cursos Interactiva -->
+    <section id="cursos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Programas Diseñados para el Mercado Real</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Olvida la teoría aburrida. Nuestros cursos están enfocados en proyectos prácticos que puedes usar para conseguir empleo o clientes freelance.</p>
             </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                <h3>Metodología Tech</h3>
-                <p>Plataforma 100% online con soporte automatizado y contenido siempre actualizado.</p>
-            </div>
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
-                <h3>Enfoque Laboral</h3>
-                <p>No enseñamos teoría vacía. Te preparamos para conseguir clientes o empleo real.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Intro a la IA Práctica</h3>
+                    <p class="text-slate-600 mb-6 text-sm leading-relaxed">Pierde el miedo a la tecnología. Aprende a usar herramientas de IA para redactar, crear imágenes y organizar tu vida digital.</p>
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-200">
+                        <span class="text-2xl font-bold text-slate-900">$7 <span class="text-sm font-normal text-slate-500">USD</span></span>
+                        <span class="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">Ver detalles <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 cursor-pointer relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Asistente Virtual Pro</h3>
+                    <p class="text-slate-600 mb-6 text-sm leading-relaxed">Conviértete en un profesional indispensable. Gestiona agendas, correos y bases de datos usando automatización avanzada.</p>
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-200">
+                        <span class="text-2xl font-bold text-slate-900">$25 <span class="text-sm font-normal text-slate-500">USD</span></span>
+                        <span class="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">Ver detalles <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Marketing con IA</h3>
+                    <p class="text-slate-600 mb-6 text-sm leading-relaxed">Crea campañas publicitarias, embudos de venta y contenido para redes sociales en minutos, no en horas.</p>
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-200">
+                        <span class="text-2xl font-bold text-slate-900">$30 <span class="text-sm font-normal text-slate-500">USD</span></span>
+                        <span class="text-blue-600 font-semibold text-sm group-hover:translate-x-1 transition-transform">Ver detalles <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-col">
-                <h4>ACE Academy Tech</h4>
-                <p>Formando a la nueva generación de profesionales digitales en Venezuela.</p>
+    <!-- Sección de Aval Institucional -->
+    <section id="aval" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10" data-aos="zoom-in">
+            <i class="fa-solid fa-shield-halved text-5xl text-blue-400 mb-6"></i>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Respaldo Académico Garantizado</h2>
+            <p class="text-slate-300 text-lg mb-8">
+                Todos nuestros programas cuentan con el aval de instituciones educativas privadas reconocidas. 
+                Tus certificados son válidos, verificables y listos para potenciar tu hoja de vida.
+            </p>
+            <div class="inline-flex items-center gap-3 bg-white/10 px-6 py-3 rounded-lg border border-white/20">
+                <span class="text-sm font-mono text-blue-300">CÓDIGO DE VALIDACIÓN:</span>
+                <span class="font-bold text-white">ACE-2026-MPPE-001</span>
             </div>
-            <div class="footer-col">
-                <h4>Programas</h4>
-                <ul>
-                    <li><a href="#">Introducción a la IA</a></li>
-                    <li><a href="#">Asistente Virtual</a></li>
-                    <li><a href="#">Marketing Digital</a></li>
+        </div>
+    </section>
+
+    <!-- Footer Profesional -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-4 text-white">
+                    <i class="fa-solid fa-layer-group text-blue-600"></i>
+                    <span class="font-bold text-xl">ACE Academy Tech</span>
+                </div>
+                <p class="text-sm leading-relaxed max-w-sm">
+                    Plataforma de educación tecnológica enfocada en la empleabilidad real. 
+                    Formamos profesionales capaces de resolver problemas complejos con herramientas simples.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Enlaces Rápidos</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-400 transition">Catálogo de Cursos</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Validar Certificado</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition">Soporte Técnico</a></li>
                 </ul>
             </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
+            <div>
+                <h4 class="text-white font-bold mb-4">Contacto</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-brands fa-whatsapp mr-2"></i> +58 414 000 0000</li>
+                    <li><i class="fa-regular fa-envelope mr-2"></i> info@aceacademy.tech</li>
+                    <li><i class="fa-solid location-dot mr-2"></i> Carabobo, Venezuela</li>
                 </ul>
             </div>
         </div>
-        <div class="copyright">
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-slate-800 text-center text-xs">
             <p>&copy; 2026 ACE Academy Tech. Todos los derechos reservados.</p>
-            <div class="aval-code">Avalado por: [Nombre Institución] | Código: PR-XXXXX</div>
         </div>
     </footer>
 
+    <!-- Script para activar animaciones -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // La animación solo ocurre una vez al bajar
+            offset: 100, // Empieza la animación un poco antes de llegar
+        });
+    </script>
 </body>
 </html>
